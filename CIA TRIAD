@@ -1,0 +1,62 @@
+# CIA Triad
+
+The CIA Triad is a basic cybersecurity model used to protect information and systems. CIA stands for Confidentiality, Integrity, and Availability.
+
+## 1. Confidentiality
+
+### Definition
+Confidentiality means ensuring that information is accessible only to authorized people or systems.
+
+### Example
+A bank protects your account information so that only you and authorized bank employees can access it.
+
+### Real-World Examples
+- Passwords protect your email account.
+- Encryption protects data sent through secure websites.
+- A hospital restricts patient records to authorized staff.
+
+---
+
+## 2. Integrity
+
+### Definition
+Integrity means ensuring that information remains accurate, complete, and unaltered unless an authorized person changes it.
+
+### Example
+If your bank account shows ₹10,000, nobody should be able to secretly change it to ₹1,00,000.
+
+### Real-World Examples
+- A bank protects transaction records from unauthorized modification.
+- Software developers use hashes to verify that downloaded files have not been changed.
+- A school protects student marks from unauthorized modification.
+
+---
+
+## 3. Availability
+
+### Definition
+Availability means ensuring that authorized users can access information and systems when they need them.
+
+### Example
+You should be able to access your bank's website when you need to check your account.
+
+### Real-World Examples
+- Websites use backup servers to remain available during failures.
+- Hospitals maintain backup systems so critical services can continue.
+- Cloud services use redundant infrastructure to reduce downtime.
+
+---
+
+## Easy Way to Remember
+
+| CIA | Meaning | Main Question |
+|---|---|---|
+| C — Confidentiality | Keep information secret | Who can see it? |
+| I — Integrity | Keep information correct | Has it been changed? |
+| A — Availability | Keep systems accessible | Can I access it when needed? |
+
+## Summary
+
+- **Confidentiality:** Prevent unauthorized access.
+- **Integrity:** Prevent unauthorized modification.
+- **Availability:** Ensure authorized access when needed.
