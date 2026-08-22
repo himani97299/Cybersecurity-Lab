@@ -1,0 +1,328 @@
+1. What is Cryptography?
+
+**Cryptography** is the practice of protecting information by transforming it into a form that unauthorized people cannot easily understand.
+
+It is used to provide security properties such as **confidentiality, integrity, authentication, and non-repudiation**.
+
+**Real-world examples:**
+
+* HTTPS protects communication between your browser and websites.
+* Online banking uses cryptographic techniques to protect sensitive information.
+* Messaging applications use encryption to protect messages.
+
+---
+
+## 2. Encryption and Decryption
+
+**Encryption** converts readable data (**plaintext**) into an unreadable form (**ciphertext**).
+
+**Decryption** converts ciphertext back into the original plaintext.
+
+```text
+Plaintext
+    ↓
+ Encryption
+    ↓
+Ciphertext
+    ↓
+ Decryption
+    ↓
+Plaintext
+```
+
+Example:
+
+```text
+Plaintext:  Hello
+Encryption: ↓
+Ciphertext: [encrypted data]
+Decryption: ↓
+Plaintext:  Hello
+```
+
+---
+
+# 3. Symmetric Encryption
+
+**Symmetric encryption** uses the **same secret key** for encryption and decryption.
+
+```text
+          Same Secret Key
+          ↙            ↘
+Plaintext → Encryption → Ciphertext
+                         ↓
+                    Decryption
+                         ↓
+                      Plaintext
+```
+
+### Example
+
+If Alice encrypts a file using a secret key, Bob needs the **same key** to decrypt it.
+
+### Real-world examples
+
+* **AES (Advanced Encryption Standard)**
+* Encrypted file storage
+* Database encryption
+* Disk encryption
+
+### Advantages
+
+* Fast
+* Efficient for large amounts of data
+
+### Disadvantage
+
+The secret key must be shared securely between the communicating parties.
+
+---
+
+# 4. Asymmetric Encryption
+
+**Asymmetric encryption** uses a **pair of keys**:
+
+* **Public key** → can be shared
+* **Private key** → kept secret
+
+The keys are mathematically related but serve different purposes.
+
+### Basic concept
+
+```text
+Public Key  → Encrypt
+Private Key → Decrypt
+```
+
+For example, someone can use your public key to encrypt information intended for you, and your private key is used to decrypt it.
+
+### Examples
+
+* RSA
+* ECC
+
+### Real-world uses
+
+* Secure communication
+* Digital certificates
+* Key exchange
+* Digital signatures
+
+### Symmetric vs Asymmetric
+
+| Symmetric             | Asymmetric                         |
+| --------------------- | ---------------------------------- |
+| One shared secret key | Public + private key pair          |
+| Faster                | Generally slower                   |
+| Good for large data   | Useful for key exchange/signatures |
+| Example: AES          | Examples: RSA, ECC                 |
+
+---
+
+# 5. Hashing
+
+**Hashing** converts data into a fixed-length value called a **hash** or **digest**.
+
+Unlike encryption, a cryptographic hash is designed to be **one-way**.
+
+```text
+Input
+  ↓
+Hash Function
+  ↓
+Hash / Digest
+```
+
+For example:
+
+```text
+"Hello"
+   ↓
+SHA-256
+   ↓
+A fixed-length hexadecimal hash
+```
+
+A small change in the input should produce a substantially different hash.
+
+### Uses of hashing
+
+* File integrity verification
+* Password storage systems
+* Digital signatures
+* Detecting whether data has changed
+
+---
+
+# 6. MD5
+
+**MD5 (Message-Digest Algorithm 5)** produces a **128-bit hash**.
+
+Example:
+
+```text
+Input → MD5 → 128-bit digest
+```
+
+MD5 is **not considered secure for modern cryptographic security applications** because practical collision attacks exist.
+
+It can still be encountered when working with older systems or legacy data.
+
+---
+
+# 7. SHA-256
+
+**SHA-256** is part of the SHA-2 family and produces a **256-bit hash**.
+
+It is widely used for integrity checking and other cryptographic applications.
+
+### MD5 vs SHA-256
+
+| MD5                                   | SHA-256                   |
+| ------------------------------------- | ------------------------- |
+| 128-bit output                        | 256-bit output            |
+| Older algorithm                       | Modern cryptographic hash |
+| Collision weaknesses                  | Much stronger             |
+| Not recommended for security purposes | Widely used               |
+
+---
+
+# 8. Digital Certificates
+
+A **digital certificate** helps prove the identity of a website or other entity and associates that identity with a public key.
+
+Certificates are commonly used with **TLS**.
+
+A certificate can contain information such as:
+
+* Domain name
+* Public key
+* Certificate authority
+* Validity period
+* Digital signature
+
+### Real-world example
+
+When you visit:
+
+```text
+https://example.com
+```
+
+your browser can verify the site's TLS certificate and establish a secure connection.
+
+---
+
+# 9. SSL/TLS
+
+**TLS (Transport Layer Security)** is a cryptographic protocol used to secure network communication.
+
+You may hear **SSL**, but SSL is an older protocol that has been replaced by TLS.
+
+HTTPS uses TLS:
+
+```text
+HTTP + TLS = HTTPS
+```
+
+### TLS provides
+
+* **Confidentiality** → protects data from being read by unauthorized parties
+* **Integrity** → helps detect unauthorized modification
+* **Authentication** → helps verify the identity of the server
+
+### Real-world example
+
+When you log into a website using HTTPS, TLS helps protect the communication between your browser and the website.
+
+---
+
+# 10. Digital Signatures
+
+A **digital signature** is a cryptographic mechanism used to verify:
+
+1. Who signed the data
+2. Whether the data was modified
+
+Digital signatures use asymmetric cryptography.
+
+Simplified process:
+
+```text
+Data
+ ↓
+Hash
+ ↓
+Signature using Private Key
+ ↓
+Digital Signature
+```
+
+The corresponding public key can be used to verify the signature.
+
+### Real-world examples
+
+* Software signing
+* Electronic documents
+* Secure communications
+* Digital certificates
+
+---
+
+# 11. OpenSSL
+
+**OpenSSL** is a widely used cryptographic toolkit.
+
+It can be used for tasks involving:
+
+* Encryption
+* Hashing
+* Key generation
+* Certificates
+* TLS testing
+
+### Check OpenSSL version
+
+```bash
+openssl version
+```
+
+### Calculate a SHA-256 hash
+
+```bash
+echo -n "Hello" | openssl dgst -sha256
+```
+
+This produces the SHA-256 digest of `Hello`.
+
+---
+
+# 12. Key Terms
+
+| Term                      | Meaning                                         |
+| ------------------------- | ----------------------------------------------- |
+| **Plaintext**             | Original readable data                          |
+| **Ciphertext**            | Encrypted data                                  |
+| **Encryption**            | Converts plaintext to ciphertext                |
+| **Decryption**            | Converts ciphertext back to plaintext           |
+| **Key**                   | Cryptographic value used by an algorithm        |
+| **Hash**                  | Fixed-length output produced by a hash function |
+| **Symmetric encryption**  | Uses one shared secret key                      |
+| **Asymmetric encryption** | Uses public and private keys                    |
+| **Certificate**           | Associates an identity with a public key        |
+| **TLS**                   | Protocol for securing network communication     |
+| **Digital signature**     | Verifies authenticity and integrity             |
+
+## Quick Summary
+
+```text
+Symmetric  → Same secret key
+Asymmetric → Public + private keys
+Hashing    → One-way digest
+MD5        → Older, collision-broken hash
+SHA-256    → Modern cryptographic hash
+Certificate → Identity + public key
+TLS        → Secures network communication
+```
+
+**Main idea:** Cryptography helps protect data by providing **confidentiality, integrity, authentication, and trust**.
