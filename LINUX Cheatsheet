@@ -1,0 +1,32 @@
+| Command      | Purpose                                   | Example                    | What it does                               |
+| ------------ | ----------------------------------------- | -------------------------- | ------------------------------------------ |
+| `pwd`        | Show current directory                    | `pwd`                      | Shows where you are                        |
+| `ls`         | List files/folders                        | `ls`                       | Displays contents of the current directory |
+| `ls -la`     | List all files with details               | `ls -la`                   | Shows hidden files and permissions         |
+| `cd`         | Change directory                          | `cd Documents`             | Moves into `Documents`                     |
+| `cd ..`      | Go back one directory                     | `cd ..`                    | Moves to the parent directory              |
+| `cd ~`       | Go to home directory                      | `cd ~`                     | Returns to your home folder                |
+| `sudo`       | Run command with administrator privileges | `sudo apt update`          | Runs the command with elevated privileges  |
+| `touch`      | Create an empty file                      | `touch notes.txt`          | Creates `notes.txt`                        |
+| `mkdir`      | Create a directory                        | `mkdir lab`                | Creates a folder called `lab`              |
+| `cp`         | Copy files/folders                        | `cp notes.txt backup.txt`  | Copies a file                              |
+| `mv`         | Move/rename files                         | `mv old.txt new.txt`       | Renames or moves a file                    |
+| `rm`         | Remove a file                             | `rm notes.txt`             | Deletes a file                             |
+| `cat`        | Display file contents                     | `cat notes.txt`            | Prints the file contents                   |
+| `nano`       | Edit a text file                          | `nano notes.txt`           | Opens the file in Nano                     |
+| `chmod`      | Change permissions                        | `chmod 755 script.sh`      | Changes file permissions                   |
+| `chown`      | Change file owner                         | `sudo chown user file.txt` | Changes ownership                          |
+| `apt`        | Manage packages                           | `sudo apt install nmap`    | Installs a package                         |
+| `dpkg`       | Manage `.deb` packages                    | `sudo dpkg -i package.deb` | Installs a Debian package                  |
+| `ip addr`    | Show network interfaces/IP addresses      | `ip addr`                  | Displays network configuration             |
+| `ifconfig`   | Show network configuration                | `ifconfig`                 | Displays interfaces and IP information     |
+| `ping`       | Test network connectivity                 | `ping 192.168.56.10`       | Checks whether a host responds             |
+| `ss`         | Show network connections                  | `ss -tuln`                 | Shows listening TCP/UDP ports              |
+| `netstat`    | Show network information                  | `netstat -tuln`            | Displays connections and listening ports   |
+| `traceroute` | Trace network path                        | `traceroute example.com`   | Shows the route packets take               |
+| `clear`      | Clear terminal                            | `clear`                    | Clears the terminal screen                 |
+| `history`    | Show previous commands                    | `history`                  | Displays command history                   |
+| `whoami`     | Show current user                         | `whoami`                   | Shows your username                        |
+| `uname`      | Show system information                   | `uname -a`                 | Displays kernel/system information         |
+| `man`        | Show command manual                       | `man chmod`                | Opens documentation for a command          |
+| `which`      | Find command location                     | `which python3`            | Shows where the executable is located      |
