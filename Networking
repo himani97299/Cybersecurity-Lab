@@ -1,0 +1,296 @@
+## 1. What is a Network?
+
+A **computer network** is a group of connected devices that communicate with each other to exchange data and share resources.
+
+**Example:**
+A home Wi-Fi network connects phones, laptops, TVs, and other devices to a router and allows them to communicate and access the internet.
+
+---
+
+## 2. OSI Model
+
+The **OSI (Open Systems Interconnection) model** is a 7-layer model used to understand how data travels between devices.
+
+| Layer | Name         | Main Function                             | Example            |
+| ----- | ------------ | ----------------------------------------- | ------------------ |
+| 7     | Application  | Provides network services to applications | HTTP, DNS          |
+| 6     | Presentation | Data formatting, encryption, compression  | TLS, JPEG          |
+| 5     | Session      | Establishes and manages sessions          | Session management |
+| 4     | Transport    | Reliable data delivery and ports          | TCP, UDP           |
+| 3     | Network      | Routing and logical addressing            | IP, routers        |
+| 2     | Data Link    | Frames and MAC addresses                  | Ethernet, switches |
+| 1     | Physical     | Sends raw bits over physical media        | Cables, radio      |
+
+### Easy way to remember
+
+**Application → Presentation → Session → Transport → Network → Data Link → Physical**
+
+---
+
+## 3. TCP/IP Model
+
+The **TCP/IP model** describes how devices communicate over networks and is the foundation of the modern Internet.
+
+| TCP/IP Layer   | Examples              |
+| -------------- | --------------------- |
+| Application    | HTTP, HTTPS, DNS, SSH |
+| Transport      | TCP, UDP              |
+| Internet       | IP, ICMP              |
+| Network Access | Ethernet, Wi-Fi       |
+
+### OSI vs TCP/IP
+
+OSI has **7 layers**, while TCP/IP is commonly represented with **4 layers**.
+
+---
+
+## 4. IP Address
+
+An **IP address** identifies a device/interface on a network.
+
+Example:
+
+```text
+192.168.1.10
+```
+
+IPv4 addresses contain **32 bits** and are written as four decimal numbers.
+
+### Private IPv4 ranges
+
+Common private ranges include:
+
+```text
+10.0.0.0 – 10.255.255.255
+172.16.0.0 – 172.31.255.255
+192.168.0.0 – 192.168.255.255
+```
+
+These are commonly used inside private networks such as home networks and cybersecurity labs.
+
+---
+
+## 5. MAC Address
+
+A **MAC address** is a hardware/network-interface address used primarily at the Data Link layer.
+
+Example:
+
+```text
+00:1A:2B:3C:4D:5E
+```
+
+**IP address:** Used for logical network addressing.
+**MAC address:** Used for local network communication.
+
+---
+
+## 6. Ports
+
+A **port** identifies a network service on a device.
+
+Examples:
+
+| Port | Common Service |
+| ---: | -------------- |
+|   22 | SSH            |
+|   53 | DNS            |
+|   80 | HTTP           |
+|  443 | HTTPS          |
+|   25 | SMTP           |
+| 3306 | MySQL          |
+
+For example, a web server commonly listens on **port 80 or 443**.
+
+---
+
+## 7. TCP and UDP
+
+### TCP
+
+**TCP (Transmission Control Protocol)** provides reliable, ordered communication.
+
+Features:
+
+* Connection-oriented
+* Reliable delivery
+* Error checking
+* Maintains packet order
+
+**Example:** HTTPS, SSH, and many other applications use TCP.
+
+### UDP
+
+**UDP (User Datagram Protocol)** is connectionless and has less overhead than TCP.
+
+**Example:** DNS commonly uses UDP for standard queries.
+
+### Simple comparison
+
+| TCP                 | UDP                    |
+| ------------------- | ---------------------- |
+| Reliable            | Faster/lower overhead  |
+| Connection-oriented | Connectionless         |
+| Ordered delivery    | No guaranteed ordering |
+| More overhead       | Less overhead          |
+
+---
+
+## 8. DNS
+
+**DNS (Domain Name System)** translates domain names into IP addresses.
+
+Example:
+
+```text
+example.com → IP address
+```
+
+Instead of remembering an IP address, users can type a domain name.
+
+**Real-world example:**
+When you enter a website address in your browser, DNS helps your device find the server associated with that domain.
+
+---
+
+## 9. HTTP and HTTPS
+
+### HTTP
+
+**HTTP (Hypertext Transfer Protocol)** is used for communication between web browsers and web servers.
+
+Common port:
+
+```text
+80
+```
+
+### HTTPS
+
+**HTTPS (HTTP Secure)** uses encryption through TLS to protect communication between the client and server.
+
+Common port:
+
+```text
+443
+```
+
+### Difference
+
+```text
+HTTP  → Web communication without TLS encryption
+HTTPS → HTTP protected by TLS
+```
+
+---
+
+## 10. Subnetting
+
+**Subnetting** divides a larger IP network into smaller networks called subnets.
+
+Example:
+
+```text
+192.168.1.0/24
+```
+
+A `/24` network has:
+
+```text
+Network address:   192.168.1.0
+Usable range:     192.168.1.1 – 192.168.1.254
+Broadcast:        192.168.1.255
+```
+
+Subnetting helps organize networks and control how devices communicate.
+
+---
+
+## 11. NAT
+
+**NAT (Network Address Translation)** translates between private and public IP addresses.
+
+Example:
+
+```text
+Laptop
+192.168.1.10
+     ↓
+   Router
+     ↓
+Public IP
+```
+
+NAT allows multiple devices using private IP addresses to share a public Internet connection.
+
+---
+
+## 12. Useful Networking Commands
+
+### Check IP address
+
+```bash
+ip addr
+```
+
+### Test connectivity
+
+```bash
+ping 192.168.1.1
+```
+
+### Show listening ports
+
+```bash
+ss -tuln
+```
+
+### Trace network path
+
+```bash
+traceroute example.com
+```
+
+### DNS lookup
+
+```bash
+nslookup example.com
+```
+
+or:
+
+```bash
+dig example.com
+```
+
+---
+
+## 13. Networking in Your Cybersecurity Lab
+
+Your lab might look like:
+
+```text
+        Kali Linux
+      Attacker Machine
+       192.168.56.10
+             |
+             | Host-Only Network
+             |
+       192.168.56.20
+       Metasploitable2
+        Target Machine
+```
+
+The important idea is that both machines communicate through the **private lab network**, allowing you to practice networking and security tools in an isolated environment.
+
+### Key points to remember
+
+* **IP** → identifies a device/interface logically.
+* **MAC** → identifies a network interface locally.
+* **Port** → identifies a network service.
+* **TCP** → reliable communication.
+* **UDP** → connectionless, lower overhead.
+* **DNS** → domain name → IP address.
+* **HTTP/HTTPS** → web communication.
+* **Subnetting** → divides networks into smaller networks.
+* **NAT** → translates private/public addressing.
